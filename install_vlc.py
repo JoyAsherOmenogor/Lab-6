@@ -79,5 +79,32 @@ def save_installer(installer_data):
     # TODO: Step 4
     # Specify the path where you want to save the VLC installer file
     installer_path = '...'  # Replace with the desired path
-    with open
+    with open(installer_path, 'wb') as file:
+        file.write(installer_data)
+    return installer_path
+
+def run_installer(installer_path):
+    subprocess.run([installer_path, '/silent'])
+
+def delete_installer(installer_path):
+    os.remove(installer_path)
+
+if __name__ == '__main__':
+    main() 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
