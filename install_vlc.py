@@ -30,13 +30,13 @@ def get_expected_sha256():
     """
     # TODO: Step 1
     # Use the requests library to download the text file from the videolan.org website
-    file_url = 'https://www.videolan.org/'  # Replace with the correct URL
+    file_url = 'http://download.videolan.org/pub/videolan/vlc/3.0.17.4/win64/SHA256SUMS'
     response = requests.get(file_url)
 
     if response.status_code == requests.codes.ok:
         file_content = response.text
         # TODO: Extract the expected SHA-256 value from the text file content
-        expected_sha256 = '...'  # Replace with the code to extract the expected SHA-256
+        expected_sha256 =  = extract_file_value(file_content)
         return expected_sha256
 
 def download_installer():
@@ -46,7 +46,7 @@ def download_installer():
     """
     # TODO: Step 2
     # Use the requests library to download the VLC installer file
-    file_url = '...'  # Replace with the correct URL
+    file_url = resp_msg.text
     response = requests.get(file_url)
 
     if response.status_code == requests.codes.ok:
@@ -78,7 +78,7 @@ def save_installer(installer_data):
     """
     # TODO: Step 4
     # Specify the path where you want to save the VLC installer file
-    installer_path = '...'  # Replace with the desired path
+    installer_path =  os.path.join(os.getenv('TEMP'), 'vlc-3.0.17.4-win64.exe')
     with open(installer_path, 'wb') as file:
         file.write(installer_data)
     return installer_path
